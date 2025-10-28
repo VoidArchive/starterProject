@@ -22,28 +22,28 @@ echo "📦 Frontend (SvelteKit)"
 echo "────────────────────────────────────────────────────"
 
 # Check if frontend build exists
-if [ -d "frontend/.svelte-kit" ]; then
-    SVELTE_KIT_SIZE=$(du -sb frontend/.svelte-kit 2>/dev/null | cut -f1)
+if [ -d "web/.svelte-kit" ]; then
+    SVELTE_KIT_SIZE=$(du -sb web/.svelte-kit 2>/dev/null | cut -f1)
     echo -e "${BLUE}Build output:${NC}        $(format_size $SVELTE_KIT_SIZE)"
 else
-    echo -e "${YELLOW}⚠ No build found${NC} (run: cd frontend && pnpm build)"
+    echo -e "${YELLOW}⚠ No build found${NC} (run: cd web && pnpm build)"
 fi
 
 # Node modules size
-if [ -d "frontend/node_modules" ]; then
-    NODE_MODULES_SIZE=$(du -sb frontend/node_modules 2>/dev/null | cut -f1)
+if [ -d "web/node_modules" ]; then
+    NODE_MODULES_SIZE=$(du -sb web/node_modules 2>/dev/null | cut -f1)
     echo -e "${BLUE}node_modules:${NC}        $(format_size $NODE_MODULES_SIZE)"
 fi
 
 # Count dependencies
-if [ -f "frontend/package.json" ]; then
-    DEV_DEPS=$(grep -c '"@' frontend/package.json || echo "0")
+if [ -f "web/package.json" ]; then
+    DEV_DEPS=$(grep -c '"@' web/package.json || echo "0")
     echo -e "${BLUE}Dependencies:${NC}        ~$DEV_DEPS packages"
 fi
 
 # Production build size (if exists)
-if [ -d "frontend/.svelte-kit/cloudflare" ]; then
-    PROD_SIZE=$(du -sb frontend/.svelte-kit/cloudflare 2>/dev/null | cut -f1)
+if [ -d "web/.svelte-kit/cloudflare" ]; then
+    PROD_SIZE=$(du -sb web/.svelte-kit/cloudflare 2>/dev/null | cut -f1)
     echo -e "${GREEN}Production build:${NC}    $(format_size $PROD_SIZE)"
 fi
 
@@ -53,7 +53,7 @@ echo "────────────────────────�
 
 # Build Go binary
 echo -e "${YELLOW}Building Go binary...${NC}"
-cd backend
+cd api
 
 # Check if main.go exists
 if [ -f "cmd/api/main.go" ]; then
@@ -128,8 +128,8 @@ echo -e "${GREEN}Total (no deps):${NC}     $(format_size $TOTAL_NO_DEPS)"
 echo
 echo "💡 Tips:"
 echo "────────────────────────────────────────────────────"
-echo "• Frontend: Run 'cd frontend && pnpm build' to create production build"
+echo "• Frontend: Run 'cd web && pnpm build' to create production build"
 echo "• Backend:  Optimized build uses -ldflags=\"-s -w\" to strip debug info"
 echo "• Docker:   Multi-stage builds can reduce final image to ~20MB"
-echo "• Analyze:  Use 'pnpm --filter frontend exec vite-bundle-visualizer' for bundle analysis"
+echo "• Analyze:  Use 'pnpm --filter web exec vite-bundle-visualizer' for bundle analysis"
 echo
