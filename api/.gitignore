@@ -1,0 +1,27 @@
+# Air hot reload
+tmp/
+*.log
+
+# Test coverage
+coverage.out
+coverage.html
+
+# Binary builds
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# SQLC generated code
+sqlc/
+
+# Go workspace
+go.work
+go.work.sum
+
+# Environment (handled by root, but keep for standalone use)
+.env

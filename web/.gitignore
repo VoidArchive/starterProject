@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# SvelteKit build output
+.svelte-kit/
+build/
+
+# Deployment platforms
+.output/
+.vercel/
+.netlify/
+.wrangler/
+
+# Environment (handled by root, but keep for standalone use)
+.env
+.env.*
+!.env.example
+
+# Vite temp files
+vite.config.*.timestamp-*
+
+# Package manager
+.pnpm-debug.log

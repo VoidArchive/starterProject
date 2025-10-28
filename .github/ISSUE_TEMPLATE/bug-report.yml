@@ -1,0 +1,30 @@
+name: Bug Report
+description: Something isn't working
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      placeholder: What happened?
+  
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error
+  
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+  
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Browser, OS, etc."

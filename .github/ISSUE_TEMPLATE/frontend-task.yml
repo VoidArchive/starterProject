@@ -1,0 +1,40 @@
+name: Frontend Task
+description: Frontend development work
+title: "[FE] "
+labels: ["frontend"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: What needs to be built?
+    validations:
+      required: true
+  
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+  
+  - type: input
+    id: estimate
+    attributes:
+      label: Estimate (story points)
+      placeholder: "1, 2, 3, 5, or 8"
